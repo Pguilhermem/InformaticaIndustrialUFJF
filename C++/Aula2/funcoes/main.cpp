@@ -12,6 +12,8 @@ float potencia(float b, int exp)
 	return r;
 }
 
+int glob =3;
+
 int main()
 {
 	float base, resultado;

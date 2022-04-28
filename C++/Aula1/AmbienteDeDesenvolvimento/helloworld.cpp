@@ -10,6 +10,10 @@ using namespace std;
 int main()
 {
     cout << "Hello World!\n"; //exibe a mensagem
+    
+    int a=10,b=20;
+
+    int c = a+b;
 
     system("pause"); //pausa o programa
 
