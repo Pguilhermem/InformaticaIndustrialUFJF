@@ -15,7 +15,7 @@ int main()
 
 	// Parte 2: Utilizando inicializadores
 	//a) Inicializando todo o vetor
-	int vetor2[5] = {1,2,3,4,5};
+	int vetor2[] = {1,2,3,4,5};
 	//b) Inicializando o primeiro elemento e os demais iguais a zero
 	int vetor3[5] = {5};
 
