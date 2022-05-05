@@ -8,6 +8,7 @@ int main()
 	int *pvar;
 	pvar = &var;
 
+
 	cout<<"Acessando o valor de var diretamente: "<<var<<endl;
 	*pvar = 30;
 	cout<<"Acessando o valor de var atraves de pvar: "<<*pvar<<endl;
@@ -26,9 +27,9 @@ int main()
 	
 	*vet += 1;
 	cout << "Valor de vet[0] apos a operacao: " << vet[0] <<endl;
-	*(vet+1) *=3;
+	*(vet+1) *=8;
 	cout << "Valor de vet[1] apos a operacao: " << vet[1] <<endl;
-	pvet +=3;
+	pvet +=8;
 	*pvet /= 2;
 	cout << "Valor de vet[3] apos a operacao: " << vet[3] <<endl;
 

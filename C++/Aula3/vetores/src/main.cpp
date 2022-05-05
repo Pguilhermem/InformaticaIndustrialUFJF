@@ -3,15 +3,17 @@
 #include <cstring>
 
 using namespace std;
+#define TAM 5
 
 int main()
 {
 	//Parte 1: Inicialização explícita
-	int vetor1[5];
-	for (int i = 0; i < 5;i++)
+	int vetor1[TAM];
+	for (int i = 0; i < TAM ;i++)
 	{
 		vetor1[i] = i;
 	}
+	
 
 	// Parte 2: Utilizando inicializadores
 	//a) Inicializando todo o vetor
