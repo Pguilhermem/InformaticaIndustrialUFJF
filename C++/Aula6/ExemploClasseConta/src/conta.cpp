@@ -23,6 +23,7 @@ Conta::Conta(int senha, int numero, std::string titular, std::string tipo, doubl
     else
     {
         std::cout<<"Saldo inicial invalido"<<std::endl;
+        this->saldo=0;
     }    
 }
 
