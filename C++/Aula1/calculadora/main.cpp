@@ -16,7 +16,7 @@ int main()//a função main inicia a execução do programa
 	cout << "op: ";
 	cin >> op; // recebe o operaor
 
-	switch(op)// verifica o operador escolhido e escolhe o casi baseado nele
+	switch(op)// verifica o operador escolhido e escolhe o case baseado nele
 	{
 	case '+':
 		cout << "Resultado = " <<num1+num2<<endl;
