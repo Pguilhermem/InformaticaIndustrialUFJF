@@ -14,7 +14,7 @@ int main()//a função main inicia a execução do programa
 	cout << "Num 2: ";
 	cin >> num2; // recebe o numero 2
 	cout << "op: ";
-	cin >> op; // recebe o operaor
+	cin >> op; // recebe o operador
 
 	switch(op)// verifica o operador escolhido e escolhe o case baseado nele
 	{
