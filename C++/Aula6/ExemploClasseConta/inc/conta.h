@@ -16,7 +16,7 @@ public:
     std::string titular;
     std::string tipo;
     void exibeDados();
-    bool getSaldo(int senha, double& saldo);
+    double getSaldo(int senha);
     void setSaldo(double valor);
     void setSenha(int novaSenha);
     void deposito(double valor);

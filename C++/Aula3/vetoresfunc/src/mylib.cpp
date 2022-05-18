@@ -2,7 +2,7 @@
 
 void elevaQuadradoVetor(int vet[], int tamVet)
 {
-	for (int i = 0; i < tamVet ;i++)
+	for (int i = 0; i < tamVet ;i++) //Multiplica cada espaço do vetor por ele mesmo
 	{
 		vet[i] *= vet[i];
 	}	
