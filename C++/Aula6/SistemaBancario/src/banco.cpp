@@ -49,6 +49,7 @@ void Banco::atendimento()
     {
         cout << "Digite a sua senha: ";
         cin >> senhain;
+
         if (contaCliente->validaSenha(senhain))
         {
             cout << "Ola " << contaCliente->titular << endl;

@@ -39,16 +39,17 @@ void Conta::exibeDados()
     std::cout<< "Tipo: "<<this->tipo<<std::endl;
 }
 
-double Conta::getSaldo(int senha)
+bool Conta::getSaldo(int senha,double& saldo)
 {
     if(senha==this->senha)
     {
-        return this->saldo;
+        saldo = this->saldo;
+        return true;
     }
     else
     {
         std::cout<<"Senha inválida"<<std::endl;
-        return -10000000;
+        return false;
     }    
 
 }

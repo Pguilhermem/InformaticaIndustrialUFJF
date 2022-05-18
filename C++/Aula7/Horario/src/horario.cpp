@@ -5,7 +5,9 @@
 using namespace std;
 
 Horario::Horario(int h , int m , int s)
+:var(10)
 {
+    var = 10;
     setHorario(h,m,s);
 }
 
@@ -33,6 +35,7 @@ void Horario::setHorario(int h, int m, int s)
 
 int Horario::getHora() const 
 {
+    
     return this->hora;
 }
 

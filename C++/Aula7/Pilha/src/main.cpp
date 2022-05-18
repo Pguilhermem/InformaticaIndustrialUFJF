@@ -25,10 +25,10 @@ int main()
     cout << "--- Vetor Alocado Dinamicamente ---"<<endl;
     for(int i=0;i<tamVet;++i)
     {
-        pvet[i] = i;
+        *(pvet+i) = i;
         cout << "pvet["<<i<<"] = " << pvet[i]<<endl;
     }    
-
+    delete[] pvet;
     //Exemplo Templates
     cout << "--- Exemplo Templates ---"<<endl;
     int vetInt[] = {1,2,3,4};
