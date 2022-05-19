@@ -8,7 +8,7 @@ private:
     int id;
     static int totalEmpacotados;
 public:
-    Empacotador(int);
+    Empacotador(int);//Construtor da classe Empacotador
     void empacotar(int);
     int getNumEmpacotados();
     int getTotalEmpacotados();
