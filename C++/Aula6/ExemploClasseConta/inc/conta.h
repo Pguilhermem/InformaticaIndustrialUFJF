@@ -9,9 +9,9 @@ private:
     double saldo;
     int senha;
 public:
-    Conta();
-    Conta(int senha, int numero, std::string titular, std::string tipo, double saldo);
-    ~Conta();
+    Conta();//Construtor
+    Conta(int senha, int numero, std::string titular, std::string tipo, double saldo);//Construtor que recebe parametros
+    ~Conta();//Destrutor
     int numero;
     std::string titular;
     std::string tipo;
