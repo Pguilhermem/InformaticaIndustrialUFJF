@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void foo()
+void foo() //Chama a função imprimeTotalEmpacotados(), ela não precisa de um objeto
 {
     Empacotador::imprimeTotalEmpacotados();
 }
