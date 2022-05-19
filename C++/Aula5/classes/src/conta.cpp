@@ -4,6 +4,6 @@ using namespace std;
 
 void Conta::exibeDados()
 {
-	cout << "Titular: " << titular << endl;
-	cout << "Numero: " << numero << endl;
+	cout << "Titular: " << this->titular << endl;
+	cout << "Numero: " << this->numero << endl;
 }
