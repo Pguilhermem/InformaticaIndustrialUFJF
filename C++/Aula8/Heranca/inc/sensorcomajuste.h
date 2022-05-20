@@ -8,8 +8,8 @@
 class SensorComAjuste: public SensorIndustrial
 {
 private:
-    vector<double> coefs;
-    vector<Medicao> dadosAjustados;
+    vector<double> coefs;//Cria um vector do tipo double
+    vector<Medicao> dadosAjustados;//Cria um vector do tipo Medicao
     void ajustarDados();
 public:
     SensorComAjuste(std::string, std::string);
