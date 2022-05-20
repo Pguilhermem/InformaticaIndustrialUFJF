@@ -22,7 +22,7 @@ public:
 template<typename T>
 Pilha<T>::Pilha(int t)//Cria uma vetor de tamanho variavel do tipo T
 {
-    this->tam = t > 0 ? t:10;
+    this->tam = t > 0 ? t:10;//Essa linha diz: Se t>0, this->tam = t, senão: this->tam=10
     this->top = -1;
     this->pPtr = new T[this->tam];
 }
