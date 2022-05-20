@@ -48,7 +48,7 @@ bool Pilha<T>::insere(const T& valor)//Insere um valor no topo da pilha
 }
 
 template<typename T>
-bool Pilha<T>::remove(T& var)//Remove o ultimo elemento inserido na pilha
+bool Pilha<T>::remove(T& var)//Remove o ultimo elemento inserido na pilha e atribui a var o valor do dado removido(passagem por referencia)
 {
     if(!estaVazia())
     {
