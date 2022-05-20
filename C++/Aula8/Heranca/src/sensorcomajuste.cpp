@@ -7,7 +7,7 @@
 
 using namespace std;
 
-SensorComAjuste::SensorComAjuste(string id, string un): SensorIndustrial::SensorIndustrial(id,un)
+SensorComAjuste::SensorComAjuste(string id, string un): SensorIndustrial::SensorIndustrial(id,un)//SensorComAjuste é derivado do SensorIndustrial, recebendo tudo que SensorIndustrial possui
 {
     this->coefs = vector<double>({0,1.0});
     this->dadosAjustados = vector<Medicao>();
@@ -20,7 +20,7 @@ SensorComAjuste::~SensorComAjuste()
     cout<<"Destrutor classe SensorComAjuste invocado"<<endl;
 }
 
-void SensorComAjuste::setCoef(vector<double>& coefs)
+void SensorComAjuste::setCoef(vector<double>& coefs)//Define os coeficientes
 {
     this->coefs.resize(coefs.size());
     this->coefs = coefs;
@@ -28,14 +28,14 @@ void SensorComAjuste::setCoef(vector<double>& coefs)
 }
 
 
-void SensorComAjuste::getCoef(vector<double>& c)
+void SensorComAjuste::getCoef(vector<double>& c)//Recebe o coeficiente
 {
     c = this->coefs;
 }
 
 void SensorComAjuste::lerDados(const vector<Medicao>& dadosNovos)
 {
-    SensorIndustrial::lerDados(dadosNovos);
+    SensorIndustrial::lerDados(dadosNovos);//Utiliza o metodo lerDados() da Classe SensorIndustrial
     this->ajustarDados();
 }
 
