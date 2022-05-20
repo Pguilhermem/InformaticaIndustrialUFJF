@@ -41,8 +41,8 @@ int main()
     //Classe Pilha (Alocação Dinâmica + Templates)
 
     cout << "--- Classe Pilha ---"<<endl;
-    Pilha<int> p1(5);
-    Pilha<string> pString(5);
+    Pilha<int> p1(5); //T dentro da classe pilha vai assumir o valor de int para o objeto p1
+    Pilha<string> pString(5);//T dentro da classe pilha vai assumir o valor de string para o objeto pString
 
     p1.insere(4);
     p1.insere(10);
