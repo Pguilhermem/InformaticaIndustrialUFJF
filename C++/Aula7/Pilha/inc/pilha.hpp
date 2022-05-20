@@ -1,13 +1,14 @@
+//Esse arquivo recebe a extensão hpp por possuir um template
 #ifndef PILHA_H
 #define PILHA_H
 
-template<typename T>
+template<typename T>//T fica definido como uma "variavel" para os tipos dos atributos e metodos, como por exemplo: int,float,bool...
 class Pilha
 {
 private:
     int tam;
     int top;
-    T *pPtr;
+    T *pPtr;//pPtr apontara para o tipo de variavel definido no main no momento de sua declaração
 public:
     Pilha(int = 10);
     ~Pilha();
@@ -19,7 +20,7 @@ public:
 
 
 template<typename T>
-Pilha<T>::Pilha(int t)
+Pilha<T>::Pilha(int t)//Cria uma vetor de tamanho variavel do tipo T
 {
     this->tam = t > 0 ? t:10;
     this->top = -1;
@@ -27,13 +28,13 @@ Pilha<T>::Pilha(int t)
 }
 
 template<typename T>
-Pilha<T>::~Pilha()
+Pilha<T>::~Pilha()//Deleta o vetor criado no construtor
 {
     delete[] this->pPtr;
 }
 
 template<typename T>
-bool Pilha<T>::insere(const T& valor)
+bool Pilha<T>::insere(const T& valor)//Insere um valor no topo da pilha
 {
     if(!estaCheia())
     {
@@ -47,7 +48,7 @@ bool Pilha<T>::insere(const T& valor)
 }
 
 template<typename T>
-bool Pilha<T>::remove(T& var)
+bool Pilha<T>::remove(T& var)//Remove o ultimo elemento inserido na pilha
 {
     if(!estaVazia())
     {
@@ -62,13 +63,13 @@ bool Pilha<T>::remove(T& var)
 }
 
 template<typename T>
-bool Pilha<T>::estaVazia() const
+bool Pilha<T>::estaVazia() const//Verifica se a pilha esta vazia
 {
     return top == -1;
 }
 
 template<typename T>
-bool Pilha<T>::estaCheia() const
+bool Pilha<T>::estaCheia() const//Verifica se a pilha esta cheia
 {
     return top == tam - 1;
 }
