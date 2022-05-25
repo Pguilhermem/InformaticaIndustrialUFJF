@@ -8,7 +8,7 @@ Circulo::Circulo(float r)
     }
 }
 
-double Circulo::calculaArea()
+double Circulo::calculaArea()//O Circulo tem seu proprio metodo de calculaArea, que e diferente do Metodo do Quadrado
 {
     return raio * raio * 3.14;
 }
@@ -51,7 +51,7 @@ float Quadrado::getlado()
     return this->lado;
 }
 
-double Quadrado::calculaArea()
+double Quadrado::calculaArea()//O Quadrado tem seu proprio metodo de calculaArea, que e diferente do Metodo do Circulo
 {
     return lado*lado;
 }
