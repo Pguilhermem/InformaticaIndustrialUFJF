@@ -33,7 +33,7 @@ void SensorComAjuste::getCoef(vector<double>& c)
     c = this->coefs;
 }
 
-void SensorComAjuste::lerDados(const vector<Medicao>& dadosNovos)
+void SensorComAjuste::lerDados(const vector<Medicao>& dadosNovos)//Tem seu proprio ler dados
 {
     SensorIndustrial::lerDados(dadosNovos);
     this->ajustarDados();
