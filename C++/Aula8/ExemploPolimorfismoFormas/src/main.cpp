@@ -9,7 +9,7 @@ void foo(vector<FormaBiDimensional*> formas)
 {
     for(int i=0;i<formas.size();++i)
     {
-        cout <<"Area objeto " << i<<" : " << formas[i]->calculaArea()<<endl;
+        cout <<"Area objeto " << i<<" : " << formas[i]->calculaArea()<<endl;//Cada objeto vai realizar seu proprio metodo de calcular a Area
     }
 }
 
