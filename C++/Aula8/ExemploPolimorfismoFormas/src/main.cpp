@@ -16,8 +16,8 @@ void foo(vector<FormaBiDimensional*> formas)
 int main()
 {
 
-    Circulo c(3);
-    Quadrado q(4);
+    Circulo c(3);//Circulo de Raio 3
+    Quadrado q(4);//Quadrado de Lado 4
     vector<FormaBiDimensional*> formas;
     formas.push_back(&c);
     formas.push_back(&q);
