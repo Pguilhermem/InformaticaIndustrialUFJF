@@ -2,13 +2,13 @@
 #include "math.h"
 #include <iostream>
 
-ContaPoupanca::ContaPoupanca() : Conta::Conta()
+ContaPoupanca::ContaPoupanca() : Conta::Conta()//O construtor de ContaPoupanca chama o construtor da classe Conta
 {
     this->taxa = 0;
 }
 
 ContaPoupanca::ContaPoupanca(int senha, int numero, std::string titular, double saldo, float taxa) : 
-Conta::Conta(senha,numero,titular,saldo)
+Conta::Conta(senha,numero,titular,saldo)//O construtor de ContaPoupanca chama o construtor da classe Conta
 {
     this->taxa = taxa;
 }
@@ -17,7 +17,7 @@ ContaPoupanca::~ContaPoupanca()
 {
 }
 
-double ContaPoupanca::simulaRendimentos(int senha, int numMeses)
+double ContaPoupanca::simulaRendimentos(int senha, int numMeses)//Metodo que simula os rendimentos da Conta em alguns meses
 {
     if(this->senha = senha)
         return this->saldo*pow(1+taxa,numMeses);
