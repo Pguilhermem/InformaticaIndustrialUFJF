@@ -1,6 +1,6 @@
 #include "formas.h"
 
-Circulo::Circulo(float r)
+Circulo::Circulo(float r)//Construtor recebe o Raio do Circulo
 {
     if(!this->setraio(r))
     {
@@ -28,7 +28,7 @@ float Circulo::getraio()
     return this->raio;
 }
 
-Quadrado::Quadrado(float l) 
+Quadrado::Quadrado(float l) //Construtor recebe o Lado do Quadrado
 {
     if(!this->setlado(l))
     {
