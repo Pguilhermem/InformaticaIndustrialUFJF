@@ -4,11 +4,11 @@
 class FormaBiDimensional
 {
     public:
-    virtual double calculaArea() = 0;
+    virtual double calculaArea() = 0;//Todas as formas possuem area, mas ela e calculada diferente para cada forma
 
 };
 
-class Circulo : public FormaBiDimensional
+class Circulo : public FormaBiDimensional//O circulo e uma forma bidimensional, logo tudo que as formas bidimensionais possuem ela possui tambem
 {
     private:
         float raio;
@@ -19,7 +19,7 @@ class Circulo : public FormaBiDimensional
         double calculaArea();
 };
 
-class Quadrado : public FormaBiDimensional
+class Quadrado : public FormaBiDimensional//O circulo e uma forma bidimensional, logo tudo que as formas bidimensionais possuem ela possui tambem
 {
     private:
         float lado;
