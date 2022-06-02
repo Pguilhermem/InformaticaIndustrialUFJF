@@ -1,6 +1,6 @@
-
-def soma(op1,op2):
-    """
+#Cria funções que podem ser utilizadas em outros codigos
+def soma(op1,op2):#Os comentarios Entre """....""" aparecem ao se digitar a função no arquivo .py, possibilitando outros programadores terem uma breve impressão a utilização da função
+    """ 
     Função que retorna a soma de dois números
     :param op1: primeiro operando
     :param op2: segundo operando
@@ -17,7 +17,7 @@ def divisao(dividendo,divisor):
     """
     return dividendo/divisor
 
-lista =  [x**2 for x in range(0,10)]
+lista =  [x**2 for x in range(0,10)]#Cria uma lista desse tipo:[0,1,4,9,16,25,...,100]
 
 if __name__ == "__main__":    #Não são executadas quando se o utiliza o import
     import sys

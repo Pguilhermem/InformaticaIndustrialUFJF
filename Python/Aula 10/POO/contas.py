@@ -76,7 +76,7 @@ class Conta():
         else:
             print("Senha inválida")
 
-class ContaPoupanca(Conta):
+class ContaPoupanca(Conta):#Cria uma classe derivada da classe conta,mantendo todas as funções já definidas em Conta
     """
     Classe Conta Poupança
     """
@@ -89,7 +89,7 @@ class ContaPoupanca(Conta):
         :param taxa: taxa de rendimento mensal
         :param saldoi: saldo inicial da conta (padrão = 0.0)
         """
-        super().__init__(numero,titular,senha,saldoi)
+        super().__init__(numero,titular,senha,saldoi)#super() é utilizado para se referir a uma função da classe na qual essa é derivada, no caso o construtor da classe Conta
         self.__taxa = taxa
     
     def simulaRendimento(self, nmeses):
