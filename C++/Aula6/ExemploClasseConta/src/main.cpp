@@ -3,6 +3,15 @@
 
 using namespace std;
 
+void foo(Conta* vet[], int tam)
+{
+    for( int i = 0; i < tam; i++)
+    {
+        vet[i]->exibeDados();
+    }
+    
+}
+
 int main()
 {
 
@@ -26,11 +35,12 @@ int main()
      }
 
       cout<<"Exibindo informacoes das contas-correntes através de um vetor de ponteiros"<<endl;
+      foo(cc_ponteiros,2);
       
-     for(int i= 0;i<sizeof(cc_ponteiros)/sizeof(cc_ponteiros[0]);i++)
-     {
-         cc_ponteiros[i]->exibeDados();
-     }
+    //  for(int i= 0;i<sizeof(cc_ponteiros)/sizeof(cc_ponteiros[0]);i++)
+    //  {
+    //      cc_ponteiros[i]->exibeDados();
+    //  }
 
 
     return 0;
