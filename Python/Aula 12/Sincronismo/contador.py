@@ -1,4 +1,6 @@
+from ast import arg
 import threading
+
 
 class Contador():
     def __init__(self, nthreads, maxcont):

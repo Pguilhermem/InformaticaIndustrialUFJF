@@ -74,7 +74,7 @@ class ServidorMT(Servidor):
     """
     def __init__(self, host, port):
         """
-        Construtor da classe servidor
+        Construtor da classe ServidorMT
         """
         super().__init__(host,port)
         self.__threadPool = {}
