@@ -12,8 +12,9 @@ class ServidorMODBUS():
         """
         Construtor
         """
-        self._server = ModbusServer(host=host_ip,port=port,no_block=True)
-        self._db = DataBank
+        self._db = DataBank()
+        self._server = ModbusServer(host=host_ip,port=port,no_block=True,data_bank=self._db)
+       
         
     def run(self):
         """
@@ -23,11 +24,11 @@ class ServidorMODBUS():
             self._server.start()
             print("Servidor MODBUS em execução")
             while True:
-                self._db.set_words(1000,[random.randrange(int(0.95*400),int(1.05*400))])
+                self._db.set_holding_registers(1000,[random.randrange(int(0.95*400),int(1.05*400))])
                 print('======================')
                 print("Tabela MODBUS")
-                print(f'Holding Register \r\n R1000: {self._db.get_words(1000)} \r\n R2000: {self._db.get_words(2000)}')
-                print(f'Coil \r\n R1000: {self._db.get_bits(1000)}')
+                print(f'Holding Register \r\n R1000: {self._db.get_holding_registers(1000)} \r\n R2000: {self._db.get_holding_registers(2000)}')
+                print(f'Coil \r\n R1000: {self._db.get_coils(1000)}')
                 sleep(1)
         except Exception as e:
             print("Erro: ",e.args)
