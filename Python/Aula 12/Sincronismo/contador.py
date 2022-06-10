@@ -12,11 +12,11 @@ class Contador():
 
     def increment(self):
         n = 0
-        # self._lock.acquire()
+        self._lock.acquire()
         while n < self._maxcont:
             self._cont += 1
             n +=1
-        # self._lock.release()
+        self._lock.release()
     
     def run(self):
         for t in range(0,self._nthreads):
