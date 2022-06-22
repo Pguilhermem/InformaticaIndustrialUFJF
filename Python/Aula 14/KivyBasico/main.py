@@ -9,9 +9,13 @@ class BasicApp(App):
     Aplicativo básico Kivy
     """
     def build(self):
+        """
+        Constrói o aplicativo a partir de um conjunto de widgets
+        :return Widget principal da aplicação
+        """
         layout = BoxLayout(orientation = 'horizontal')
         self.lb = Label(text="0")
-        bt = Button(text = "Botão 1",on_release=self.incrementar)
+        bt = Button(text = "Botão 1", on_release = self.incrementar)
         layout.add_widget(self.lb)
         layout.add_widget(bt)
         

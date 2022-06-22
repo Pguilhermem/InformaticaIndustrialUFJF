@@ -1,0 +1,37 @@
+#:kivy 1.11.1
+<MyWidget>:
+    orientation: 'vertical'
+    RelativeLayout:
+        id: valid_region
+        Widget:
+            id: bola
+            size_hint: None,None
+            size: 50,50
+            canvas:
+                Color:
+                    rgba: 0,0,1,1
+                Ellipse:
+                    pos:self.pos
+                    size:self.size
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint: (1,0.1)
+        Button:
+            id: bt_mover
+            text: "Mover"
+            pos_hint: {'right': 1,'bottom':1}
+            background_color: [1,0,0,1]
+            on_release: root.command()
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                size_hint: (1,0.5)
+                text: 'Velocidade'
+            Slider:
+                id: slider_vel
+                min: 1
+                max: 30
+                on_touch_move: 
+                    root._vel[0] = slider_vel.value*root._vel[0]/abs(root._vel[0])
+                    root._vel[1] = slider_vel.value*root._vel[1]/abs(root._vel[1])
+
