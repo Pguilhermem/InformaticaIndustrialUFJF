@@ -1,14 +1,14 @@
 import kivy
 from kivy.app import App
-from kivy.uix.floatlayout import FloatLayout
-from kivy.core.window import Window
+from kivy.uix.boxlayout import BoxLayout
+from kivy.config import Config
 
-class MyWidget(FloatLayout):
+class MyWidget(BoxLayout):
     def changelb(self):
         """
         Método simples para incremento do valor mostrado no label
         """
-        pass
+        self.ids.lb.text = str(int(self.ids.lb.text) + 1) 
 
 class BasicApp(App):
     def build(self):
@@ -18,6 +18,5 @@ class BasicApp(App):
         return MyWidget()
  
 if __name__ == '__main__':
-    Window.size=(640,480)
-    Window.fullscreen = True
+    Config.set('graphics','resizable',True)
     BasicApp().run()
