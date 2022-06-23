@@ -10,8 +10,8 @@ class ServidorMODBUS():
         """
         Construtor
         """
-        self._server =  ModbusServer(host=host_ip, port=port, no_block=True)
-        self._db = DataBank
+
+        self._server =  ModbusServer(host=host_ip, port=port,no_block=True)
     
     def run(self):
         """
@@ -20,10 +20,12 @@ class ServidorMODBUS():
         self._server.start()
         print("Servidor em execução")
         while True:
-            self._db.set_words(1000,[random.randrange(400,500)]) # temperatura
-            self._db.set_words(1001,[random.randrange(100000,120000)]) #pressão
-            self._db.set_words(1002,[random.randrange(20,40)]) # umidade
-            self._db.set_words(1003,[random.randrange(40,100)]) # consumo
+            self._server
+            
+            (1000,[random.randrange(400,500)]) # temperatura
+            self._server.data_bank.set_holding_registers(1001,[random.randrange(100000,120000)]) #pressão
+            self._server.data_bank.set_holding_registers(1002,[random.randrange(20,40)]) # umidade
+            self._server.data_bank.set_holding_registers(1003,[random.randrange(40,100)]) # consumo
             sleep(1)
             
         
