@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 from kivy.clock import Clock
+from time import sleep
 
 class MyWidget(BoxLayout):
     _vel = [1,1]
@@ -12,6 +13,7 @@ class MyWidget(BoxLayout):
             self._vel[0] *= -1
         if self.ids.bola.y < 0 or self.ids.bola.top > self.ids.valid_region.height:
             self._vel[1] *= -1
+
     
     
     def command(self):
