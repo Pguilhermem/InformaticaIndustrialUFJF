@@ -22,7 +22,7 @@ class ServidorMODBUS():
         while True:
             self._server
             
-            (1000,[random.randrange(400,500)]) # temperatura
+            self._server.data_bank.set_holding_registers(1000,[random.randrange(400,500)]) # temperatura
             self._server.data_bank.set_holding_registers(1001,[random.randrange(100000,120000)]) #pressão
             self._server.data_bank.set_holding_registers(1002,[random.randrange(20,40)]) # umidade
             self._server.data_bank.set_holding_registers(1003,[random.randrange(40,100)]) # consumo
