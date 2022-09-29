@@ -6,9 +6,9 @@ using namespace std;
 Banco::Banco() //O construtor criara 4 contas
 {
     this->contas[0] = Conta(1234, 1, "Joao", "Corrente", 300);
-    this->contas[1] = Conta(4567, 2, "Jose", "Poupanca", 800);
-    this->contas[2] = Conta(7890, 3, "Maria", "Corrente", 1000);
-    this->contas[3] = Conta(8956, 4, "Madalena", "Poupanca", 2000);
+    this->contas[1] = {4567, 2, "Jose", "Poupanca", 800};
+    this->contas[2] = {7890, 3, "Maria", "Corrente", 1000};
+    this->contas[3] = {8956, 4, "Madalena", "Poupanca", 2000};
 }
 
 Banco::~Banco()
