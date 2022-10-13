@@ -1,3 +1,5 @@
+#ifndef FILA_H
+#define FILA_H
 using namespace std;
 
 template <typename T>
@@ -66,3 +68,4 @@ Fila<T>::~Fila()
 {
     delete[] this->pPtr;
 }
+#endif
