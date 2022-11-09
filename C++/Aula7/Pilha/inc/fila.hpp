@@ -1,6 +1,9 @@
 #ifndef FILA_H
 #define FILA_H
+<<<<<<< HEAD
 
+=======
+>>>>>>> 51551a395c848c345db6addc43b85c5fb0dd695e
 using namespace std;
 
 template <typename T>
@@ -69,4 +72,8 @@ Fila<T>::~Fila()
 {
     delete[] this->pPtr;
 }
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> 51551a395c848c345db6addc43b85c5fb0dd695e
