@@ -5,7 +5,6 @@
 a = 3 
 b = a
 
-
 print("Valor: ", a)
 print("Identificador de a: ", id(a))
 print("Identificador de b antes da mudança: ", id(b))

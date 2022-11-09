@@ -7,7 +7,7 @@ using namespace std;
 Horario::Horario(int h , int m , int s)
 :var(10)
 {
-    var = 10;
+    var = 20;
     setHorario(h,m,s);//Define os horarios recebidos no construtor
 }
 
@@ -35,7 +35,6 @@ void Horario::setHorario(int h, int m, int s)//Define os horarios recebidos no c
 
 int Horario::getHora() const //retorna a hora
 {
-    
     return this->hora;
 }
 

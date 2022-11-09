@@ -5,7 +5,7 @@
 
 class Conta
 {
-protected:
+private:
     double saldo;
     int senha;
 public:

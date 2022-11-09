@@ -21,6 +21,11 @@ int main()
     emp1.imprimeNumEmpacotados();
     emp2.imprimeNumEmpacotados();
 
+    Empacotador::imprimeTotalEmpacotados();
+    Empacotador::imprimeTotalEmpacotados();
+    Empacotador::imprimeTotalEmpacotados();
+    Empacotador::imprimeTotalEmpacotados();
+
     foo();
 
     return 0;

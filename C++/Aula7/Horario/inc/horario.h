@@ -7,7 +7,7 @@ private:
     int hora;
     int minuto;
     int segundo;
-    int var;
+    const int var;
 public:
     Horario(int=12, int=0, int=0);
 

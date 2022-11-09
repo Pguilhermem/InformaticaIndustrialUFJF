@@ -3,9 +3,12 @@
 
 class FormaBiDimensional
 {
+    private:
+    int id;
+    
     public:
-    virtual double calculaArea() = 0;//Todas as formas possuem area, mas ela e calculada diferente para cada forma
-       //O metodo virtual nem necessita de ser escrito no formas.cpp
+    virtual double calculaArea() = 0 ;//Todas as formas possuem area, mas ela e calculada diferente para cada forma
+    int getID();  //O metodo virtual nem necessita de ser escrito no formas.cpp
 };
 
 class Circulo : public FormaBiDimensional//O circulo e uma forma bidimensional, logo tudo que as formas bidimensionais possuem ela possui tambem

@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void Conta::exibeDados()
+void Conta::exibeDados(int numero)
 {
 	cout << "Titular: " << this->titular << endl;
 	cout << "Numero: " << this->numero << endl;

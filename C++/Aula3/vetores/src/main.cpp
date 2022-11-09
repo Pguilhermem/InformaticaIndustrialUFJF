@@ -19,7 +19,7 @@ int main()
 	//a) Inicializando todo o vetor
 	int vetor2[] = {1,2,3,4,5};
 	//b) Inicializando o primeiro elemento e os demais iguais a zero
-	int vetor3[5] = {5};
+	int vetor3[5] = {5,3};
 
 	//Parte 3: Utilizando memset (Avisar que o valor a ser preenchido é do tipo char)
 	char vetor4[5];

@@ -12,14 +12,14 @@
                 "-g",
                 "main.cpp",
                 "-o",
-                "${workspaceFolderBasename}.exe"
+                "Programa.exe"
             ]
         },
         {
             "label": "run",
             "type": "shell",
             "dependsOn":"build",
-            "command": ".\\${workspaceFolderBasename}.exe",
+            "command": ".\\Programa.exe",
         }
     ]
 }

@@ -31,7 +31,7 @@ class ModbusPersistencia(object):
             while True:
                 data['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
                 for tag in self._tags_addrs:
-                    data[tag]= self._cliente.read_holding_registers(self._tags_addrs[tag], 1)[0]
+                    data[tag]= self._cliente.read_holding_registers(self._tags_addrs[tag],1)[0]
                 self._dbclient.insert_data(data)
                 sleep(self._scan_time)
 

@@ -36,27 +36,11 @@ class Servidor():
         :param client: é o endereço do cliente
         """
         print("Atendendo cliente ", client)
-        operadores = ['+','-','*','/']
         while True:
             try: 
                 msg = con.recv(1024)
                 msg_s = str(msg.decode('ascii'))
-                op = "none"
-                for x in operadores:
-                    if msg_s.find(x) > 0:
-                        op = x
-                        msg_s = msg_s.split(op)
-                        break
-                if op == '+':
-                    resp = float(msg_s[0]) + float(msg_s[1]) 
-                elif op == '-':
-                    resp = float(msg_s[0]) - float(msg_s[1]) 
-                elif op == '*':
-                    resp = float(msg_s[0]) * float(msg_s[1]) 
-                elif op == '/':
-                    resp = float(msg_s[0]) / float(msg_s[1])   
-                else:
-                    resp = "Operação inválida"
+                resp = eval(msg_s)
                 con.send(bytes(str(resp),'ascii'))
                 print(client," -> requisição atendida")
             except OSError as e:

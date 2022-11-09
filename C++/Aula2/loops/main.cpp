@@ -14,7 +14,7 @@ int main()
 	//Loop while
 	int cont=0;
 	cout<<"Contagem com while" << endl;
-	while(cont>=0&&cont<10)
+	while(cont>0&&cont<10)
 	{
 		++cont;
 		cout<<cont<<endl;		

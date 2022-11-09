@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ int main()
 	int var = 10;
 	int *pvar; //Criação do ponteiro de inteiros
 	pvar = &var;//O ponteiro passa a apontar para a variavel var
-
+	int k =0;
 
 	cout<<"Acessando o valor de var diretamente: "<<var<<endl;//Acessa o valor da variavel pela propria variavel
 	*pvar = 30; //Muda o valor da variavel que o ponteiro está apontando para 30

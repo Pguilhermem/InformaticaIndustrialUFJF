@@ -1,6 +1,7 @@
 #include <iostream>
 #include "mymath.h"
 
+
 using namespace std;
 
 int main()

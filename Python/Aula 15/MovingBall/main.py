@@ -14,6 +14,7 @@ class MyWidget(BoxLayout):
         if self.ids.bola.y < 0 or self.ids.bola.top > self.ids.valid_region.height:
             self._vel[1] *= -1
 
+
     
     
     def command(self):
