@@ -1,5 +1,5 @@
 import socket
-import threading
+
 
 
 class Servidor():
@@ -49,3 +49,4 @@ class Servidor():
             except Exception as e:
                 print("Erro nos dados recebidos pelo cliente ",client,": ",e.args)
                 con.send(bytes("Erro",'ascii'))
+                return
