@@ -57,10 +57,10 @@ class ClienteMODBUS():
         if tipo == 2:
             return self._cliente.read_coils(addr,1)[0]
 
-        if tipo == 1:
+        if tipo == 3:
             return self._cliente.read_input_registers(addr,1)[0]
 
-        if tipo == 1:
+        if tipo == 4:
             return self._cliente.read_discrete_inputs(addr,1)[0]
 
     def escreveDado(self, tipo, addr, valor):

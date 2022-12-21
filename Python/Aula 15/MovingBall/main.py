@@ -6,6 +6,7 @@ from time import sleep
 
 class MyWidget(BoxLayout):
     _vel = [1,1]
+
     def move(self,dt):
         self.ids.bola.x += self._vel[0]
         self.ids.bola.y += self._vel[1]
@@ -14,9 +15,7 @@ class MyWidget(BoxLayout):
         if self.ids.bola.y < 0 or self.ids.bola.top > self.ids.valid_region.height:
             self._vel[1] *= -1
 
-
-    
-    
+      
     def command(self):
         if self.ids.bt_mover.text == "Mover":
             self._ev = Clock.schedule_interval(self.move, 1.0/60.0)

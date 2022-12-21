@@ -1,4 +1,3 @@
-from ast import arg
 import threading
 
 
@@ -15,7 +14,7 @@ class Contador():
         self._lock.acquire()
         while n < self._maxcont:
             self._cont += 1
-            n +=1
+            n += 1
         self._lock.release()
     
     def run(self):
