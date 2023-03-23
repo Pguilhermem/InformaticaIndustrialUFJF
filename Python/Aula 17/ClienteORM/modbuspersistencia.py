@@ -36,6 +36,8 @@ class ModbusPersistencia(object):
                 data['timestamp'] = datetime.now()
                 for tag in self._tags_addrs:
                     data[tag]= self._cliente.read_holding_registers(self._tags_addrs[tag], 1)[0]
+                
+            
                 dado = DadoCLP(**data)
                 self._lock.acquire()
                 self._session.add(dado)
