@@ -55,7 +55,10 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 void Conta::setSaldo(double valor)//Metodo que define um saldo, atravez desse metodo é possivel ter um saldo negativo
 {
-    this->saldo = valor;
+    if(saldo>0)
+        this->saldo = valor;
+    else
+        std::cout<<"Valor inválido"<<std::endl;
 }
 
 void Conta::setSenha(int novaSenha)//Metodo que define o atributo senha

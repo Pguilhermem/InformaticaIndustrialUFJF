@@ -36,6 +36,12 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "ctime": "cpp",
+        "iterator": "cpp"
     }
 }

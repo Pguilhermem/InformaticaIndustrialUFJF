@@ -52,7 +52,10 @@ double Conta::getSaldo(int senha)
 
 void Conta::setSaldo(double valor)
 {
-    this->saldo = valor;
+    if(valor>0)
+        this->saldo = valor;
+    else
+        std::cout<<"Valor inválido"<<std::endl;
 }
 
 void Conta::setSenha(int novaSenha)
@@ -96,15 +99,7 @@ void Conta::saque(int senha, double valor)
 
 bool Conta::validaSenha(int senha)
 {
-    if(this->senha == senha)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-    
+    return (this->senha == senha);   
 }
 
 
