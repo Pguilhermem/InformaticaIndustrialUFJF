@@ -7,23 +7,21 @@ private:
     int hora;
     int minuto;
     int segundo;
-    const int var;
 public:
-    Horario(int=12, int=0, int=0);
+    Horario(int = 12, int = 0, int = 0);
 
-    //funções get
+    // funções get
     int getHora() const;
-    int getMinuto() const ;
-    int getSegundo() const ;
+    int getMinuto() const;
+    int getSegundo() const;
 
-    //funções set
-    void setHorario(int,int,int);
+    // funções set
+    void setHorario(int, int, int);
     void setHora(int);
     void setMinuto(int);
     void setSegundo(int);
 
-    void imprimeHorario() const ;
+    void imprimeHorario() const;
 };
-
 
 #endif

@@ -11,7 +11,7 @@ public:
     Empacotador(int);//Construtor da classe Empacotador
     void empacotar(int);
     int getNumEmpacotados();
-    int getTotalEmpacotados();
+    static int getTotalEmpacotados();
     void imprimeNumEmpacotados();
     static void imprimeTotalEmpacotados();
 };
