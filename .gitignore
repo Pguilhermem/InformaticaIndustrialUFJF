@@ -1,1 +1,5 @@
 .exe
+.pyc
+.env
+env
+.vscode

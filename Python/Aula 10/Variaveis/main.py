@@ -1,8 +1,7 @@
-#Objetos imutáveis
+# Objetos imutáveis
 
-#nome (variável)  | objeto
-
-a = 3 
+# nome (variável)  | objeto
+a = 3
 b = a
 
 print("Valor: ", a)
@@ -18,9 +17,9 @@ print("Identificador: ", id(a))
 
 a = "Informática"
 
-#Objetos mutáveis
-#nome (variável)  | objeto
-a = [1,2,3]
+# Objetos mutáveis
+# nome (variável)  | objeto
+a = [1, 2, 3]
 b = a
 b.append(4)
 print("Valor: ", a)

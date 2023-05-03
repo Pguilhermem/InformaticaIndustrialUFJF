@@ -25,7 +25,7 @@ class Conta():
         if self.__senha == senha:
             return self._saldo
 
-    def setSaldo(self, valor):
+    def setSaldo(self, valor): 
         """
         Método para configuração do saldo
         :param valor: valor desejado para o saldo

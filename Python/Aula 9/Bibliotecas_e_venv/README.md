@@ -1,6 +1,6 @@
 # Crie o ambiente virtual
 
-python -m virtualenv .env
+python -m venv .env
 
 # Ative o ambiente virtual (normalmente o vscode já detecta e neste caso basta selecionar sim (yes) no popup)
 
