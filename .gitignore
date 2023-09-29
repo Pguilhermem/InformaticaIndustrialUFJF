@@ -3,3 +3,8 @@
 .env
 env
 .vscode
+__pycache__
+.*
+kivy_env
+*.db
+*.data
