@@ -1,6 +1,5 @@
 import socket
 
-
 class Servidor():
     """
     Classe Servidor - API Socket
@@ -12,12 +11,13 @@ class Servidor():
         """
         self._host = host
         self._port = port
+        self.__tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 
     def start(self):
         """
         Método que inicializa a execução do servidor
         """
-        self.__tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         endpoint = (self._host, self._port)
         try:
             self.__tcp.bind(endpoint)

@@ -7,7 +7,7 @@ caminho_imagem = 'faces/image_0001.jpg'
 img = cv2.imread(caminho_imagem)
 
 # codificação para bytes
-_, img_bytes = cv2.imencode('.jpg', img)
+_, img_bytes = cv2.imencode('.jpg', img) 
 img_bytes = bytes(img_bytes)
 tamanho_da_imagem_codificado = len(img_bytes).to_bytes(4, 'big')
 

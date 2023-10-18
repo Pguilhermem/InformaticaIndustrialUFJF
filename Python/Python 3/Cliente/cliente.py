@@ -10,12 +10,13 @@ class Cliente():
         """
         self.__server_ip = server_ip
         self.__port = port
+        self.__tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
     
     def start(self):
         """
         Método que inicializa a execução do Cliente
         """
-        self.__tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         endpoint = (self.__server_ip,self.__port)
         try:
             self.__tcp.connect(endpoint)
@@ -31,7 +32,7 @@ class Cliente():
         """
         try:
             msg = ''
-            while msg != '\x18':
+            while True:
                 msg = input("Digite a operação (x para sair): ")
                 if msg == '':
                     continue
