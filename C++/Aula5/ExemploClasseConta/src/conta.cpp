@@ -12,19 +12,15 @@ Conta::Conta() //Construtor da Classe conta, quando nenhum parametro é declarad
 
 Conta::Conta(int senha, int numero, std::string titular, std::string tipo, double saldo) //Construtor da classe conta que recebe parametros(Personalizado)
 {
-    this->senha = senha;
+    this->setSenha(senha);
     this->numero = numero;
     this->titular = titular;
     this->tipo = tipo;
-    if(saldo>0) //Impede que a conta seja iniciada com saldo negativo
-    {
-        this->saldo = saldo;
-    }
-    else //Caso ela seja iniciada com saldo negativo o saldo é iniciado como 0
+    if( this->setSaldo(saldo) == VALOR_INVALIDO ) //Confere se o saldo foi 
     {
         std::cout<<"Saldo inicial invalido"<<std::endl;
-        this->saldo=0;
-    }    
+    }
+
 }
 
 Conta::~Conta() //Destrutor da Classe conta
@@ -47,18 +43,21 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
     }
     else
     {
-        std::cout<<"Senha inválida"<<std::endl;
-        return -1000000;
+        // std::cout<<"Senha inválida"<<std::endl;
+        return SENHA_INVALIDA;
     }    
 
 }
 
-void Conta::setSaldo(double valor)//Metodo que define um saldo, atravez desse metodo é possivel ter um saldo negativo
+int Conta::setSaldo(double valor)//Metodo que define um saldo, atravez desse metodo é possivel ter um saldo negativo
 {
-    if(saldo>0)
-        this->saldo = valor;
-    else
-        std::cout<<"Valor inválido"<<std::endl;
+    if(valor<=0){
+        this->saldo = 0;
+        return VALOR_INVALIDO;
+    }
+    
+    this->saldo = valor;
+    return OPERACAO_SUCEDIDA;
 }
 
 void Conta::setSenha(int novaSenha)//Metodo que define o atributo senha
@@ -66,37 +65,42 @@ void Conta::setSenha(int novaSenha)//Metodo que define o atributo senha
     this->senha = novaSenha;
 }
 
-void Conta::deposito(double valor)//Metodo que soma um valor no atributo saldo, não necessita de senha
+int Conta::deposito(double valor)//Metodo que soma um valor no atributo saldo, não necessita de senha
 {
     if(valor>0)// Se o valor do deposito for maior que 0 o metodo funciona normalmente
     {
         this->saldo+=valor;
+        return OPERACAO_SUCEDIDA;
     }
     else // Se o valor do deposito for menor que 0 o metodo imprime uma mensagem de erro no terminal
     {
-        std::cout<<"Valor invalido"<<std::endl;
+        // std::cout<<"Valor invalido"<<std::endl;
+        return VALOR_INVALIDO;
     }
     
 }
 
-void Conta::saque(int senha, double valor)// Metodo que retira um valor do atributo saldo, necessita de senha
+int Conta::saque(int senha, double valor)// Metodo que retira um valor do atributo saldo, necessita de senha
 {
     if(senha==this->senha) //Verifica se a senha digitada é igual a senha do atributo senha dessa classe
     {
         if(this->saldo>valor) //Verifica se o valor que está sendo subitraido é maior que o saldo
         {
             this->saldo-=valor;
-            std::cout<<"Saque de R$"<<valor<<" realizado com sucesso."<<std::endl;
+            // std::cout<<"Saque de R$"<<valor<<" realizado com sucesso."<<std::endl;
+            return OPERACAO_SUCEDIDA;
         }
         else 
         {
-            std::cout<<"Saldo insuficiente"<<std::endl;
+            // std::cout<<"Saldo insuficiente"<<std::endl;
+            return VALOR_INVALIDO;
         }
         
     }
     else
     {
-        std::cout<<"Senha invalida"<<std::endl;
+        // std::cout<<"Senha invalida"<<std::endl;
+        return SENHA_INVALIDA;
     }
     
 }

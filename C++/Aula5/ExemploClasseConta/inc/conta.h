@@ -2,6 +2,10 @@
 #define CONTA_H
 #include <string>
 
+#define OPERACAO_SUCEDIDA 0
+
+#define VALOR_INVALIDO -1
+#define SENHA_INVALIDA -10000
 
 class Conta
 {
@@ -17,10 +21,10 @@ public:
     std::string tipo;
     void exibeDados();
     double getSaldo(int senha);
-    void setSaldo(double valor);
+    int setSaldo(double valor);
     void setSenha(int novaSenha);
-    void deposito(double valor);
-    void saque(int senha, double valor);
+    int deposito(double valor);
+    int saque(int senha, double valor);
 
 };
 
