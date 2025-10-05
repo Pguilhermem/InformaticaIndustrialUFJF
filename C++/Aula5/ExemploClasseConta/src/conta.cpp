@@ -51,7 +51,7 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 int Conta::setSaldo(double valor)//Metodo que define um saldo, atravez desse metodo é possivel ter um saldo negativo
 {
-    if(saldo<=0){
+    if(valor<=0){
         this->saldo = 0;
         return VALOR_INVALIDO;
     }
