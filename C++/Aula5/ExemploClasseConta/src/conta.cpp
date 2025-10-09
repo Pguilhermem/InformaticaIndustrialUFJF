@@ -57,11 +57,7 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 void Conta::setSenha(int nov
     }
-    else // Se o valor do deposito for menor que 0 o metodo imprime uma mensagem de erro no terminal
-    {
-        std::cout<<"Valor invalido"<<std::endl;
-    }
-    
+    else //
 }
 
 void Conta::saque(int senha, double valor)// Metodo que retira um valor do atributo saldo, necessita de senha
