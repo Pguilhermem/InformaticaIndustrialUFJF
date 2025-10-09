@@ -56,8 +56,9 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 
 void Conta::setSenha(int nov
-    }
-    else //
+
+}
+    else 
 }
 
         if(this->saldo>valor) //Verifica se o valor que está sendo subitraido é maior que o saldo
