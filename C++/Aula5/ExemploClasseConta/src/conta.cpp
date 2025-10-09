@@ -55,16 +55,7 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 
 
-void Conta::setSenha(int novaSenha)//Metodo que define o atributo senha
-{
-    this->senha = novaSenha;
-}
-
-void Conta::deposito(double valor)//Metodo que soma um valor no atributo saldo, não necessita de senha
-{
-    if(valor>0)// Se o valor do deposito for maior que 0 o metodo funciona normalmente
-    {
-        this->saldo+=valor;
+void Conta::setSenha(int nov
     }
     else // Se o valor do deposito for menor que 0 o metodo imprime uma mensagem de erro no terminal
     {
