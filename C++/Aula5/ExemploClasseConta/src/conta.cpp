@@ -60,10 +60,6 @@ void Conta::setSenha(int nov
     else //
 }
 
-void Conta::saque(int senha, double valor)// Metodo que retira um valor do atributo saldo, necessita de senha
-{
-    if(senha==this->senha) //Verifica se a senha digitada é igual a senha do atributo senha dessa classe
-    {
         if(this->saldo>valor) //Verifica se o valor que está sendo subitraido é maior que o saldo
         {
             this->saldo-=valor;
