@@ -12,7 +12,7 @@ void foo(Conta* vet[], int tam)
     
 }
 
-int main()
+int main(
 {
 
 	Conta contas[4]={{1234,01,"Jose","Corrente",300},{4567,02,"Joao","Poupanca",800},{7890,03,"Maria","Corrente",1000}, {8956,04,"Madalena","Poupanca",2000}};
