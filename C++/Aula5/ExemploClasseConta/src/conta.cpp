@@ -57,11 +57,6 @@ double Conta::getSaldo(int senha) //Metodo que mediante a inserção de uma senh
 
 void Conta::setSenha(int nov
 
-}
-            thut<<"Saque de R$"<<valor<<" realizado com sucesso."<<std::endl;
-        }
-        else 
-        {
             std::cout<<"Saldo insuficiente"<<std::endl;
         }
         
