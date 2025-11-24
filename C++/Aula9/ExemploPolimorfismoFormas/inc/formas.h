@@ -22,7 +22,7 @@ class Circulo : public FormaBiDimensional//O circulo e uma forma bidimensional, 
         double calculaArea();
 };
 
-class Quadrado : public FormaBiDimensional//O circulo e uma forma bidimensional, logo tudo que as formas bidimensionais possuem ela possui tambem
+class Quadrado : public FormaBiDimensional//O quadrado e uma forma bidimensional, logo tudo que as formas bidimensionais possuem ela possui tambem
 {
     private:
         float lado;
