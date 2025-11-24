@@ -11,18 +11,15 @@ Conta::Conta()
 
 Conta::Conta(int senha, int numero, std::string titular, std::string tipo, double saldo)
 {
-    this->senha = senha;
+    this->setSenha(senha);
     this->numero = numero;
     this->titular = titular;
     this->tipo = tipo;
-    if(saldo>0)
-    {
-        this->saldo = saldo;
+    
+    if(this->setSaldo(saldo) == OP_INVALIDA){
+        this->saldo = 0;
     }
-    else
-    {
-        std::cout<<"Saldo inicial invalido"<<std::endl;
-    }    
+     
 }
 
 Conta::~Conta()
@@ -36,26 +33,29 @@ void Conta::exibeDados()
     std::cout<< "Tipo: "<<this->tipo<<std::endl;
 }
 
-double Conta::getSaldo(int senha)
+int Conta::getSaldo(int senha, double &saldo)
 {
     if(senha==this->senha)
     {
-        return this->saldo;
+        saldo = this->saldo;
+        return OP_SUCEDIDA;
     }
     else
     {
-        std::cout<<"Senha inválida"<<std::endl;
-        return -10000000;
+        return OP_CANCELADA;
     }    
 
 }
 
-void Conta::setSaldo(double valor)
+int Conta::setSaldo(double valor)
 {
-    if(valor>0)
+    if(valor>0){
         this->saldo = valor;
-    else
-        std::cout<<"Valor inválido"<<std::endl;
+        return OP_SUCEDIDA;
+    }
+    else{
+        return OP_INVALIDA;
+    }
 }
 
 void Conta::setSenha(int novaSenha)
@@ -63,36 +63,37 @@ void Conta::setSenha(int novaSenha)
     this->senha = novaSenha;
 }
 
-void Conta::deposito(double valor)
+int Conta::deposito(double valor)
 {
     if(valor>0)
     {
         this->saldo+=valor;
+        return OP_SUCEDIDA;
     }
     else
     {
-        std::cout<<"Valor invalido"<<std::endl;
+        return OP_INVALIDA;
     }
     
 }
 
-void Conta::saque(int senha, double valor)
+int Conta::saque(int senha, double valor)
 {
     if(senha==this->senha)
     {
         if(this->saldo>valor)
         {
             this->saldo-=valor;
-            std::cout<<"Saque de R$"<<valor<<" realizado com sucesso."<<std::endl;
+            return OP_SUCEDIDA;
         }
         else
         {
-            std::cout<<"Saldo insuficiente"<<std::endl;
+            return OP_INVALIDA;
         }    
     }
     else
     {
-        std::cout<<"Senha invalida"<<std::endl;
+        return OP_CANCELADA;
     }
     
 }

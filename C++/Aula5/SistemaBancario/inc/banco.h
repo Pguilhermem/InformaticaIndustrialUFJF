@@ -14,6 +14,7 @@ public:
     ~Banco();
     Conta* buscaConta(int numero); //Metodo que retorna o endereço do objeto conta que possui o mesmo numero informado
     void atendimento();
+    void imprimeTerminal(int resultadoOperacao);
 };
 
 

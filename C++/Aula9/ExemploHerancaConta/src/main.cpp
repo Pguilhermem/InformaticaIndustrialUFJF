@@ -12,9 +12,9 @@ int main()
     ContaPoupanca cp(8523,3,"Maria",750,0.01);//Cria o objeto cc da Classe ContaPoupanca,que possui todos os metodos e atributos da classe Conta
 
     c1.saque(1234,50);
-    cc.deposito(200);
     c1.exibeDados(1234);
     cout << endl;
+    cc.deposito(200);
     cc.insereGastoCartao(35);
     cc.exibeDados(5687);
     cout << endl;

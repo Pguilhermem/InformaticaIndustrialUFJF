@@ -55,7 +55,7 @@ void Banco::atendimento() //Realiza o atendimento ao cliente(Função chamada na
             cout << "Ola " << contaCliente->titular << endl;
             while (atendimento) //Realiza o atendimento
             {
-                int op;
+                int op, resultado;
                 double valor;
                 cout << "Qual operacao deseja fazer? (1 - Saque, 2 - Deposito, 3 - Ver Saldo, 4 - Sair): ";
                 cin >> op;
@@ -64,15 +64,28 @@ void Banco::atendimento() //Realiza o atendimento ao cliente(Função chamada na
                 case 1:
                     cout << "Digite o valor: ";
                     cin>>valor;
-                    contaCliente->saque(senhain,valor);
+                    
+                    resultado = contaCliente->saque(senhain,valor);
+
+                    this->imprimeTerminal(resultado);
+                    
                     break;
                 case 2:
                     cout << "Digite o valor: ";
                     cin>>valor;
-                    contaCliente->deposito(valor);
+                    
+                    resultado = contaCliente->deposito(valor);
+                    
+                    this->imprimeTerminal(resultado);
+                    
                     break;
                 case 3:
-                    cout << "Saldo: R$ "<<contaCliente->getSaldo(senhain)<<endl;
+                    resultado = contaCliente->getSaldo(senhain, valor);
+
+                    this->imprimeTerminal(resultado);
+
+                    cout << "Saldo: R$ "<< valor <<endl;
+
                     break;
                 case 4:
                     atendimento = false;
@@ -84,5 +97,23 @@ void Banco::atendimento() //Realiza o atendimento ao cliente(Função chamada na
         {
             cout << "Senha invalida" << endl;
         }
+    }
+}
+
+void Banco::imprimeTerminal(int resultadoOperacao) // Imprime no terminal o resultado da operação
+{ 
+    switch (resultadoOperacao){
+        case OP_SUCEDIDA:
+            std::cout<<"Operacao bem sucedida"<<std::endl;
+            break;
+
+        case OP_CANCELADA:
+            std::cout<<"Operacao cancelada, senha incorreta"<<std::endl;
+            break;
+        
+        case OP_INVALIDA:
+            std::cout<<"Operacao cancelada, valor informado invalido"<<std::endl;
+
+            break;
     }
 }

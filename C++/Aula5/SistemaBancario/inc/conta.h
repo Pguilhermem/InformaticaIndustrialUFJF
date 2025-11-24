@@ -3,6 +3,12 @@
 #include <string>
 
 
+// Define as constantes usadas para tratamento de resultado de operação
+#define OP_SUCEDIDA 1
+#define OP_CANCELADA 2
+#define OP_INVALIDA 3
+
+
 class Conta
 {
 private:
@@ -16,11 +22,11 @@ public:
     std::string titular;
     std::string tipo;
     void exibeDados();
-    double getSaldo(int senha);
-    void setSaldo(double valor);
+    int getSaldo(int senha, double &saldo);
+    int setSaldo(double valor);
     void setSenha(int novaSenha);
-    void deposito(double valor);
-    void saque(int senha, double valor);
+    int deposito(double valor);
+    int saque(int senha, double valor);
     bool validaSenha(int senha);
 
 };
