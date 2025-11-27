@@ -84,7 +84,8 @@ void Banco::atendimento() //Realiza o atendimento ao cliente(Função chamada na
 
                     this->imprimeTerminal(resultado);
 
-                    cout << "Saldo: R$ "<< valor <<endl;
+                    if( resultado == OP_SUCEDIDA )
+                        cout << "Saldo: R$ "<< valor <<endl;
 
                     break;
                 case 4:
