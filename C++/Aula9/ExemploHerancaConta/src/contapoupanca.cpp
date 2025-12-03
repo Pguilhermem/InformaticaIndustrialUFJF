@@ -19,8 +19,11 @@ ContaPoupanca::~ContaPoupanca()
 
 double ContaPoupanca::simulaRendimentos(int senha, int numMeses)//Metodo que simula os rendimentos da Conta em alguns meses
 {
-    if(this->senha = senha)
-        return this->saldo*pow(1+taxa,numMeses);
+    double saldo;
+    int retorno = this->getSaldo(senha,saldo);
+    
+    if(retorno == OP_SUCEDIDA)
+        return saldo*pow(1+taxa,numMeses);
     else
         return -1;
 }
