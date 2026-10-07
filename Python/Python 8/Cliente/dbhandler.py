@@ -8,9 +8,9 @@ class DBHandler():
     def __init__(self, dbpath,tag_names,tablename='dataTable'):
         """
         Construtor da classe DBHandler
-        :param dbpath: O caminho da pasta do banco de dados no formato de string.
+        :param dbpath: Caminho do arquivo do banco de dados, no formato de string.
         :param tag_names: Conjunto de tags a serem guardadas no banco de dados.
-        :param tablename: O nome da tabela do banco de dados que serão armazenadas as leituras .
+        :param tablename: Nome da tabela em que as leituras serão armazenadas (padrão = 'dataTable').
         """
 
         self._con = sqlite3.connect(dbpath, check_same_thread=False)
@@ -28,8 +28,8 @@ class DBHandler():
     def create_table(self,tablename,tag_names):   
         """
         Método que cria a tabela para armazenamento dos dados caso ela não exista no arquivo.
+        :param tablename: Nome da tabela em que as leituras serão armazenadas (padrão = 'dataTable').
         :param tag_names: Conjunto de tags a serem guardadas no banco de dados.
-        :param tablename: O nome da tabela do banco de dados que serão armazenadas as leituras .
         """
 
         try:
@@ -67,8 +67,8 @@ class DBHandler():
         """
         Método para coleta de dados no BD entre 2 horários especificados
         :param tags: Conjunto de tags a serem selecionadas no banco de dados.
-        :param init_t: Horário inicial do intervalo de busca no formato datetime.
-        :param final_t: Horário final do intervalo de busca no formato datetime.
+        :param init_t: Horário inicial do intervalo de busca, como texto no formato 'AAAA-MM-DD HH:MM:SS'.
+        :param final_t: Horário final do intervalo de busca, como texto no formato 'AAAA-MM-DD HH:MM:SS'.
         :return: Retorna um dicionário, contendo todos os valores do intervalo da busca para cada tag, no formato {'cols': [tag_1, ...], 'data': [[data_1], ...]}.
         """ 
 

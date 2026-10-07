@@ -5,14 +5,14 @@ from time import sleep
 
 class ServidorMODBUS():
     """
-    Classe Servidor Modbus
+    Classe Servidor MODBUS
     """
     
     def __init__(self, host_ip, port):
         """
         Construtor da classe ServidorMODBUS
-        :param host_ip: Endereço IP de execução do servidor modbus.
-        :param port: Porta de comunicação do servidor modbus.
+        :param host_ip: Endereço IP de execução do servidor MODBUS.
+        :param port: Porta de comunicação do servidor MODBUS.
         """
         self._db = DataBank()
         self._server = ModbusServer(host=host_ip,port=port,no_block=True,data_bank=self._db)

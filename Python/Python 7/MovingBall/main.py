@@ -5,6 +5,10 @@ from kivy.clock import Clock
 from time import sleep
 
 class MyWidget(BoxLayout):
+    """
+    Classe MyWidget - área da bola e barra de controles, definidas em movingball.kv
+    """
+
     _vel = [1,1]
 
     def move(self,dt):
@@ -32,9 +36,14 @@ class MyWidget(BoxLayout):
             self.ids.bt_mover.text = "Mover"
 
 class MovingBallApp(App):
+    """
+    Aplicativo Kivy de animação de uma bola, com interface carregada de movingball.kv
+    """
+
     def build(self):
         """
         Método para construção do aplicativo com base no widget criado
+        :return: widget principal da aplicação (MyWidget)
         """
         return MyWidget()
 

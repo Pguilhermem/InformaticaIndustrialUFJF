@@ -19,7 +19,7 @@ class ModbusPersistencia(object):
         :param scan_time: Tempo (em segundos) de espera entre cada ciclo de leitura (padrão: 1 segundo).
         """
         self._cliente = ModbusClient(host=server_ip, port=porta)
-        self._scan_time = 1
+        self._scan_time = scan_time
         self._tags_addrs = tags_addrs
         self._dbclient = DBHandler('data\data.db',self._tags_addrs.keys(),'modbusData')
         self._threads = []

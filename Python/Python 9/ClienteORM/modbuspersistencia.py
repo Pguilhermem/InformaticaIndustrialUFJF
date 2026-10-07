@@ -72,6 +72,10 @@ class ModbusPersistencia(object):
             print("Erro: ", e.args)
 
     def run(self):
+        """
+        Método que inicializa as principais funcionalidades da classe em threads separadas.
+        """
+
         self._threads.append(Thread(target=self.guardar_dados))
         self._threads.append(Thread(target=self.acesso_dados_historicos))
         for t in self._threads:
