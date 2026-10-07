@@ -7,7 +7,7 @@ class Conta():
         """
         Construtor da classe Conta
         :param numero: número da conta
-        :param titular: nome o titular da conta
+        :param titular: nome do titular da conta
         :param senha: senha da conta
         :param saldoi: saldo inicial da conta (padrão = 0.0)
         """
@@ -41,12 +41,12 @@ class Conta():
 
     def saque(self, senha,valor):
         """
-        Método para realização de uma saque
+        Método para realização de um saque
         :param senha: senha da conta
         :param valor: valor do saque
         """
         if senha == self.__senha:
-            if self._saldo >= valor:
+            if (self._saldo >= valor) and (valor >= 0):
                 self._saldo -= valor
                 print(f"Saque no valor de R$ {valor} realizado com sucesso")
             else:
@@ -82,9 +82,9 @@ class ContaPoupanca(Conta):#Cria uma classe derivada da classe conta,mantendo to
     """
     def __init__(self, numero, titular, senha, taxa = 0.002, saldoi=0.0):
         """
-        Construtor da classe Conta
+        Construtor da classe Conta Poupança
         :param numero: número da conta
-        :param titular: nome o titular da conta
+        :param titular: nome do titular da conta
         :param senha: senha da conta
         :param taxa: taxa de rendimento mensal
         :param saldoi: saldo inicial da conta (padrão = 0.0)

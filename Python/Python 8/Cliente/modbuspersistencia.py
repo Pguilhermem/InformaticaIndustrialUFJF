@@ -12,10 +12,14 @@ class ModbusPersistencia(object):
     """
     def __init__(self, server_ip,porta, tags_addrs, scan_time=1):
         """
-        Construtor
+        Construtor da classe ModbusPersistencia
+        :param server_ip: Endereço IP do servidor Modbus.
+        :param porta: Porta TCP do servidor Modbus.
+        :param tags_addrs: Dicionário contendo as tags e os endereços dos registradores no formato {tag_1:endereço_1, tag_2:endereço_2, ...}.
+        :param scan_time: Tempo (em segundos) de espera entre cada ciclo de leitura (padrão: 1 segundo).
         """
         self._cliente = ModbusClient(host=server_ip, port=porta)
-        self._scan_time = 1
+        self._scan_time = scan_time
         self._tags_addrs = tags_addrs
         self._dbclient = DBHandler('data\data.db',self._tags_addrs.keys(),'modbusData')
         self._threads = []
@@ -57,6 +61,9 @@ class ModbusPersistencia(object):
             print("Erro: ", e.args)
 
     def run(self):
+        """
+        Método que inicializa as principais funcionalidades da classe em threads separadas.
+        """
         self._threads.append(Thread(target=self.guardar_dados))
         self._threads.append(Thread(target=self.acesso_dados_historicos))
         for t in self._threads:

@@ -5,9 +5,17 @@ from kivy.clock import Clock
 from time import sleep
 
 class MyWidget(BoxLayout):
+    """
+    Classe MyWidget - área da bola e barra de controles, definidas em movingball.kv
+    """
+
     _vel = [1,1]
 
     def move(self,dt):
+        """
+        Método para calcular a posição da bola em um intervalo de tempo fixo
+        :param dt: intervalo de tempo entre atualização (não utilizado no cálculo).
+        """
         self.ids.bola.x += self._vel[0]
         self.ids.bola.y += self._vel[1]
         if self.ids.bola.x < 0 or self.ids.bola.right > self.ids.valid_region.width:
@@ -17,6 +25,9 @@ class MyWidget(BoxLayout):
 
       
     def command(self):
+        """
+        Método utilizado para liberar/congelar o movimento da bola.
+        """
         if self.ids.bt_mover.text == "Mover":
             self._ev = Clock.schedule_interval(self.move, 1.0/60.0)
             self.ids.bt_mover.text = "Parar"
@@ -25,9 +36,14 @@ class MyWidget(BoxLayout):
             self.ids.bt_mover.text = "Mover"
 
 class MovingBallApp(App):
+    """
+    Aplicativo Kivy de animação de uma bola, com interface carregada de movingball.kv
+    """
+
     def build(self):
         """
         Método para construção do aplicativo com base no widget criado
+        :return: widget principal da aplicação (MyWidget)
         """
         return MyWidget()
 

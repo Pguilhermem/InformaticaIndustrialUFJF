@@ -7,7 +7,9 @@ class Servidor():
 
     def __init__(self, host, port):
         """
-        Construtor da classe servidor
+        Construtor da classe Servidor
+        :param host: endereço IP de execução do servidor
+        :param port: porta de comunicação do servidor
         """
         self._host = host
         self._port = port

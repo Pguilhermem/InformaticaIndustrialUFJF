@@ -1,0 +1,3 @@
+pymodbustcp
+tabulate
+sqlalchemy
