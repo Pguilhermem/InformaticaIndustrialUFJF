@@ -7,7 +7,11 @@ class ClienteMODBUS():
     """
     def __init__(self, server_ip, porta, scan_time=1):
         """
-        Construtor
+        Construtor da classe ClienteMODBUS
+        :param server_ip: Endereço IP do servidor MODBUS.
+        :param porta: Porta TCP do servidor MODBUS.
+        :param scan_time: Tempo de varredura entre leituras, em segundos (padrão = 1).
+
         """
         # Cria o cliente TCP
         self._cliente = ModbusTcpClient(host=server_ip, port=porta)
@@ -55,8 +59,10 @@ class ClienteMODBUS():
 
     def lerDado(self, tipo, addr):
         """
-        Método para leitura de um dado da Tabela MODBUS
-        Retorna o valor lido ou None em caso de falha.
+        Método para leitura de um dado da tabela MODBUS
+        :param tipo: tipo de registrador na tabela MODBUS (1: holding register, 2: coil, 3: input register, 4: discrete input).
+        :param addr: endereço do registrador na tabela MODBUS.
+        :return: valor lido ou None em caso de falha.
         """
         # Holding Register (função 03)
         if tipo == 1:
@@ -91,8 +97,11 @@ class ClienteMODBUS():
 
     def escreveDado(self, tipo, addr, valor):
         """
-        Método para a escrita de dados na Tabela MODBUS
-        Retorna True em caso de sucesso, False em caso de falha.
+        Método para a escrita de dados na tabela MODBUS
+        :param tipo: tipo de registrador na tabela MODBUS (1: holding register, 2: coil).
+        :param addr: endereço do registrador na tabela MODBUS.
+        :param valor: valor a ser escrito no servidor.
+        :return: True em caso de sucesso, False em caso de falha.
         """
         # Holding Register (função 06 - single)
         if tipo == 1:

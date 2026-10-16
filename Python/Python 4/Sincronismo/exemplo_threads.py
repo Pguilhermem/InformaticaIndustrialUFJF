@@ -3,6 +3,12 @@ import time
 
 
 def contador(inicio, fim):
+    """
+    Função que imprime os números de inicio até fim - 1, com pausa de 0,2 s entre eles
+    :param inicio: primeiro número da contagem
+    :param fim: limite da contagem (não incluído)
+    """
+    
     for i in range(inicio, fim):
         print(f'Thread {threading.current_thread().name}: {i}')
         time.sleep(0.2)  # simula uma instrução bloqueante

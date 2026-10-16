@@ -30,6 +30,9 @@ class BasicApp(App):
         return layout
     
     def incrementar(self,*args):
+        """
+        Método para incremento de valor dos labels.
+        """
         self.lb.text = str(int(self.lb.text)+1) 
         self.lb2.text = str(int(self.lb2.text)+2) 
         self.lb3.text = str(int(self.lb3.text)+3) 

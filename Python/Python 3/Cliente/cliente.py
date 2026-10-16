@@ -7,6 +7,8 @@ class Cliente():
     def __init__(self, server_ip, port):
         """
         Construtor da classe Cliente
+        :param server_ip: Endereço IP do servidor.
+        :param port: Porta TCP do servidor.
         """
         self.__server_ip = server_ip
         self.__port = port
