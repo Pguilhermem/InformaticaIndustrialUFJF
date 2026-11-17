@@ -1,0 +1,46 @@
+{
+    "server_list": {
+        "servidor": {
+            "comm": "tcp",
+            "host": "localhost",
+            "port": 502,
+            "framer": "socket"
+        }
+    },
+    "device_list": {
+        "equipamento": {
+            "setup": {
+                "co size": 15,
+                "di size": 15,
+                "hr size": 15,
+                "ir size": 15,
+                "shared blocks": true,
+                "type exception": false,
+                "defaults": {
+                    "value": {
+                        "bits": 0,
+                        "uint16": 0,
+                        "uint32": 0,
+                        "float32": 0.0,
+                        "string": " "
+                    },
+                    "action": {
+                        "bits": null,
+                        "uint16": null,
+                        "uint32": null,
+                        "float32": null,
+                        "string": null
+                    }
+                }
+            },
+            "invalid": [],
+            "write": [ [1,10] ],
+            "bits": [10],
+            "uint16": [1,2,3],
+            "uint32": [],
+            "float32": [[4,5],[6,7],[8,9]],
+            "string": [],
+            "repeat": []
+        }
+    }
+}
