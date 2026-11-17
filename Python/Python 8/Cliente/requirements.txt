@@ -1,2 +1,2 @@
 tabulate
-pymodbustcp
+pymodbus == 3.7.2
