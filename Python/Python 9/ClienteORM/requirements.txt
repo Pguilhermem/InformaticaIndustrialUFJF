@@ -1,3 +1,3 @@
-pymodbustcp
+pymodbus == 3.7.2
 tabulate
 sqlalchemy

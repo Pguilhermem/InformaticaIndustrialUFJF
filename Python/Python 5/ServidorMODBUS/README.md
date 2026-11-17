@@ -2,7 +2,7 @@
 
 Servidor MODBUS TCP que simula um equipamento industrial. A cada segundo, ele grava no holding register 1000 um valor aleatório entre 380 e 419, como se fosse a leitura de um sensor de tensão em torno de 400, e imprime parte da sua tabela de dados. O cliente que lê e escreve nessa tabela está na pasta [`Python 5/ClienteMODBUS`](../ClienteMODBUS/README.md).
 
-O servidor usa a biblioteca pyModbusTCP. A classe `ServidorMODBUS` e o `try` / `except` seguem o que foi explicado em [`Python 2/POO`](../../Python%202/POO/README.md) e no [servidor da Aula 3](../../Python%203/Servidor/README.md).
+O servidor usa a biblioteca pymodbus, versão 3.7.2. A classe `ServidorMODBUS` e o `try` / `except` seguem o que foi explicado em [`Python 2/POO`](../../Python%202/POO/README.md) e no [servidor da Aula 3](../../Python%203/Servidor/README.md).
 
 ## Como funciona o MODBUS
 
@@ -35,12 +35,36 @@ Cada requisição do cliente leva um código que indica a operação. Os usados 
 ### O que este servidor faz
 
 ```python
-self._db = DataBank()
-self._server = ModbusServer(host=host_ip, port=port, no_block=True, data_bank=self._db)
+self._db = ModbusSlaveContext(
+    co=ModbusSequentialDataBlock(1000, [False] * 1000),
+    di=ModbusSequentialDataBlock(0, [False] * 1000),
+    ir=ModbusSequentialDataBlock(0, [0] * 1000),
+    hr=ModbusSparseDataBlock({1000:0,2000:[0]*1000}),
+    zero_mode=True,
+)
+contexto = ModbusServerContext(slaves=self._db, single=True)
+
+self._server = Thread(
+    target=StartTcpServer,
+    kwargs={"context": contexto, "address": (host_ip, port)},
+    daemon=True,
+)
 ```
 
-- `DataBank` é a tabela de dados do servidor.
-- `no_block=True` faz o `start()` retornar logo, deixando o servidor atender os clientes em segundo plano. Assim, o laço do `run()` pode continuar alterando e imprimindo a tabela.
+- `ModbusSlaveContext` é a tabela de dados do servidor, com um bloco para cada tipo: `co` (coils), `di` (discrete inputs), `ir` (input registers) e `hr` (holding registers).
+- `ModbusSequentialDataBlock(inicio, valores)` cria posições seguidas a partir do endereço `inicio`, uma para cada item da lista. Os coils vão de 1000 a 1999; discrete inputs e input registers, de 0 a 999.
+- `ModbusSparseDataBlock` recebe um dicionário só com os endereços que existem. Uma lista vira posições seguidas, então os holding registers são o 1000 e os de 2000 a 2999.
+- Um endereço fora dos blocos responde com erro `IllegalAddress`.
+- `zero_mode=True` faz o endereço pedido pelo cliente ser o mesmo da tabela. Sem ele, o pymodbus soma 1 ao endereço.
+- `ModbusServerContext` junta as tabelas do servidor. Com `single=True`, a mesma tabela responde a qualquer `device_id` enviado pelo cliente.
+- `StartTcpServer` põe o servidor no ar e não retorna enquanto ele estiver rodando. Por isso ele é executado numa thread (ver [`Python 4/Sincronismo`](../../Python%204/Sincronismo/README.md)): o `start()` retorna logo, e o laço do `run()` pode continuar alterando e imprimindo a tabela. Com `daemon=True`, a thread termina junto com o programa.
+
+A tabela é lida e alterada com `getValues` e `setValues`. O primeiro argumento é o código de função que indica o tipo de dado: 1 para coils, 2 para discrete inputs, 3 para holding registers e 4 para input registers.
+
+```python
+self._db.setValues(3, 1000, [valor])   # grava no holding register 1000
+self._db.getValues(1, 1000)            # lê o coil 1000
+```
 
 A cada segundo, o laço grava o valor aleatório no holding register 1000 e imprime os holding registers 1000 e 2000 e o coil 1000. Os endereços 2000 e 1000 (coil) não são alterados pelo servidor: eles mostram o que o cliente escrever neles.
 
@@ -58,7 +82,7 @@ Ative o ambiente:
 .venv\Scripts\activate
 ```
 
-Instale as bibliotecas listadas em `requirements.txt` (pyModbusTCP):
+Instale as bibliotecas listadas em `requirements.txt` (pymodbus 3.7.2):
 
 ```bat
 pip install -r requirements.txt

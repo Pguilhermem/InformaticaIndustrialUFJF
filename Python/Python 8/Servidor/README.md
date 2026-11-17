@@ -2,7 +2,7 @@
 
 Servidor MODBUS TCP que simula quatro medições de um processo industrial. A cada segundo, ele grava valores aleatórios em quatro holding registers, que o cliente da pasta [`Python 8/Cliente`](../Cliente/README.md) lê e armazena num banco de dados.
 
-O protocolo MODBUS, a tabela de dados e o funcionamento do servidor com pyModbusTCP estão no README do [servidor da Aula 5](../../Python%205/ServidorMODBUS/README.md).
+O protocolo MODBUS, a tabela de dados e o funcionamento do servidor estão no README do [servidor da Aula 5](../../Python%205/ServidorMODBUS/README.md).
 
 ## Valores simulados
 

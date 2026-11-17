@@ -1,0 +1,54 @@
+{
+    "server_list": {
+        "servidor": {
+            "comm": "tcp",
+            "host": "localhost",
+            "port": 502,
+            "framer": "socket"
+        }
+    },
+    "device_list": {
+        "equipamento": {
+            "setup": {
+                "co size": 40,
+                "di size": 40,
+                "hr size": 40,
+                "ir size": 40,
+                "shared blocks": true,
+                "type exception": false,
+                "defaults": {
+                    "value": {
+                        "bits": 0,
+                        "uint16": 0,
+                        "uint32": 0,
+                        "float32": 0.0,
+                        "string": " "
+                    },
+                    "action": {
+                        "bits": null,
+                        "uint16": null,
+                        "uint32": null,
+                        "float32": null,
+                        "string": null
+                    }
+                }
+            },
+            "invalid": [],
+            "write": [ [1,2], [4,7], 10, [25,26] ],
+            "bits": [10],
+            "uint16": [1,2,
+                {"addr": 3, "action": "random", "parameters": {"minval": 380, "maxval": 419}},
+                {"addr": 27, "action": "increment", "parameters": {"minval": 0, "maxval": 100}},
+                {"addr": 28, "action": "uptime"},
+                {"addr": 29, "action": "timestamp"}, [30,35],
+                {"addr": 36, "action": "reset"}
+            ],
+            "uint32": [],
+            "float32": [[4,5],[6,7],
+                {"addr": [8,9], "action": "random", "parameters": {"minval": 20.0, "maxval": 30.0}}
+            ],
+            "string": [{"addr": [11, 26], "value": "Informatica Industrial - ENE???"}],
+            "repeat": []
+        }
+    }
+}

@@ -1,4 +1,4 @@
-from pyModbusTCP.client import ModbusClient
+from pymodbus.client import ModbusTcpClient
 from time import sleep
 from datetime import datetime
 from threading import Thread
@@ -20,7 +20,7 @@ class ModbusPersistencia(object):
         :param tags_addrs: Dicionário contendo as tags e os endereços dos registradores no formato {tag_1:endereço_1, tag_2:endereço_2, ...}.
         :param scan_time: Tempo (em segundos) de espera entre cada ciclo de leitura (padrão: 1 segundo).
         """
-        self._cliente = ModbusClient(host=server_ip, port=porta)
+        self._cliente = ModbusTcpClient(host=server_ip, port=porta)
         self._scan_time = 1
         self._tags_addrs = tags_addrs
         self._session = Session()
@@ -34,13 +34,14 @@ class ModbusPersistencia(object):
         """
         try:
             print("Persistência iniciada")
-            self._cliente.open()
+            self._cliente.connect()
             data = {}
             while True:
                 data['timestamp'] = datetime.now()
                 for tag in self._tags_addrs:
-                    data[tag]= self._cliente.read_holding_registers(self._tags_addrs[tag], 1)[0]
-                
+                    resp = self._cliente.read_holding_registers(self._tags_addrs[tag],1)
+                    if resp and not resp.isError():
+                        data[tag] = resp.registers[0]                
             
                 dado = DadoCLP(**data)
                 self._lock.acquire()
