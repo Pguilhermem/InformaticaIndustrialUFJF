@@ -1,0 +1,2 @@
+pymodbus == 3.7.2
+pymodbus[simulator]==3.7.2
