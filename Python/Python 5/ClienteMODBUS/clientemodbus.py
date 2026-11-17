@@ -66,28 +66,28 @@ class ClienteMODBUS():
         """
         # Holding Register (função 03)
         if tipo == 1:
-            resp = self._cliente.read_holding_registers(address=addr, count=1, device_id=1)
+            resp = self._cliente.read_holding_registers(address=addr, count=1)
             if resp and not resp.isError():
                 return resp.registers[0]
             return None
 
         # Coil (função 01)
         if tipo == 2:
-            resp = self._cliente.read_coils(address=addr, count=1, device_id=1)
+            resp = self._cliente.read_coils(address=addr, count=1)
             if resp and not resp.isError():
                 return resp.bits[0]
             return None
 
         # Input Register (função 04)
         if tipo == 3:
-            resp = self._cliente.read_input_registers(address=addr, count=1, device_id=1)
+            resp = self._cliente.read_input_registers(address=addr, count=1)
             if resp and not resp.isError():
                 return resp.registers[0]
             return None
 
         # Discrete Input (função 02)
         if tipo == 4:
-            resp = self._cliente.read_discrete_inputs(address=addr, count=1, device_id=1)
+            resp = self._cliente.read_discrete_inputs(address=addr, count=1)
             if resp and not resp.isError():
                 return resp.bits[0]
             return None
@@ -105,13 +105,13 @@ class ClienteMODBUS():
         """
         # Holding Register (função 06 - single)
         if tipo == 1:
-            resp = self._cliente.write_register(address=addr, value=valor, device_id=1)
+            resp = self._cliente.write_register(address=addr, value=valor)
             return bool(resp and not resp.isError())
 
         # Coil (função 05 - single)
         if tipo == 2:
             # Em coils, valor esperado é 0/1 (False/True)
-            resp = self._cliente.write_coil(address=addr, value=bool(valor), device_id=1)
+            resp = self._cliente.write_coil(address=addr, value=bool(valor))
             return bool(resp and not resp.isError())
 
         # Tipo inválido
